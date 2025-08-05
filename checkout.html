@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout - HJ Shop Center</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">
+        <a href="index.html"><img src="imagens/logo.png" alt="HJ Shop" class="logo-img" /></a>
+      </div>
+      <div class="welcome">Bem-vindo à HJ Shop Center</div>
+      <div class="cart" onclick="goToCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar produtos..." />
+    </div>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="novidades.html">Novidades</a>
+      <a href="checkout.html" class="active">Checkout</a>
+      <a href="login.html">Fazer Login / Criar Conta</a>
+      <a href="sobre.html">Sobre Nós</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="checkout">
+      <h2>Resumo da Sua Compra</h2>
+      <div id="checkout-list" class="checkout-list"></div>
+      <div class="checkout-total">
+        <strong>Total Geral:</strong> <span id="total-value">0.00 MT</span>
+      </div>
+      <button class="finalizar-compra" onclick="finalizarCompra()">Finalizar Compra</button>
+    </section>
+    <button class="btn-voltar" onclick="history.back()">Voltar</button>
+  </main>
+
+  <footer>
+    <div class="contactos">
+      <p>Contactos: +258 84 258 6987 | hjshop@example.com</p>
+      <p>Métodos de Pagamento: M-Pesa, e-Mola, Cartões Bancários</p>
+    </div>
+  </footer>
+
+  <script>
+    function loadCheckout() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const container = document.getElementById("checkout-list");
+      const totalElement = document.getElementById("total-value");
+      let total = 0;
+
+      container.innerHTML = "";
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>O seu carrinho está vazio.</p>";
+        totalElement.textContent = "0.00 MT";
+        return;
+      }
+
+      cart.forEach((item) => {
+        const itemElement = document.createElement("div");
+        itemElement.classList.add("checkout-item");
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        itemElement.innerHTML = `
+          <div class="item-name"><strong>${item.name}</strong></div>
+          <div class="item-quantity">Quantidade: ${item.quantity}</div>
+          <div class="item-price">Subtotal: ${subtotal.toFixed(2)} MT</div>
+        `;
+
+        container.appendChild(itemElement);
+      });
+
+      totalElement.textContent = `${total.toFixed(2)} MT`;
+      document.getElementById("cart-count").textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+    }
+
+    function finalizarCompra() {
+      alert("Compra finalizada com sucesso!");
+      localStorage.removeItem("cart");
+      loadCheckout();
+    }
+
+    function goToCart() {
+      window.location.href = "checkout.html";
+    }
+
+    window.onload = loadCheckout;
+  </script>
+</body>
+</html>

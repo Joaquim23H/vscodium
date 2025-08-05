@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Novidades - HJ Shop Center</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="imagens/logo.png" alt="HJ Shop" class="logo-img"
+        /></a>
+      </div>
+      <div class="welcome">Bem-vindo à HJ Shop Center</div>
+      <div class="cart" onclick="goToCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar produtos..." />
+    </div>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="novidades.html" class="active">Novidades</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="login.html">Fazer Login / Criar Conta</a>
+      <a href="sobre.html">Sobre Nós</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="produtos" id="produtos">
+      <h2>Novidades</h2>
+      <div class="linha">
+        <div
+          class="produto"
+          data-nome="Mouse Gamer Auroza"
+          data-preco="3500"
+          >Mouse Gamer Auroza - 3.500 MZN
+          <button onclick="addToCart(this)">Comprar</button>
+        </div>
+        <div
+          class="produto"
+          data-nome="Samsung Galaxy Z Flip4 5G"
+          data-preco="17000"
+          >Samsung Galaxy Z Flip4 5G - 17.000 MZN
+          <button onclick="addToCart(this)">Comprar</button>
+        </div>
+        <div
+          class="produto"
+          data-nome="TV Smart Hisense"
+          data-preco="13000"
+          >TV Smart Hisense - 13.000 MZN
+          <button onclick="addToCart(this)">Comprar</button>
+        </div>
+      </div>
+      <div class="linha">
+        <div
+          class="produto"
+          data-nome="Auriculares Gamer Redragon"
+          data-preco="2800"
+          >Auriculares Gamer Redragon - 2.800 MZN
+          <button onclick="addToCart(this)">Comprar</button>
+        </div>
+        <div
+          class="produto"
+          data-nome="Cadeira Gamer Zernus"
+          data-preco="16500"
+          >Cadeira Gamer Zernus - 16.500 MZN
+          <button onclick="addToCart(this)">Comprar</button>
+        </div>
+        <div
+          class="produto"
+          data-nome="iPhone 15 Pro Flip"
+          data-preco="27000"
+          >iPhone 15 Pro Flip - 27.000 MZN
+          <button onclick="addToCart(this)">Comprar</button>
+        </div>
+      </div>
+      <button class="btn-voltar" onclick="history.back()">Voltar</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contactos">
+      <p>Contactos: +258 84 258 6987 | hjshop@example.com</p>
+      <p>Métodos de Pagamento: M-Pesa, e-Mola, Cartões Bancários</p>
+    </div>
+  </footer>
+</body>
+</html>

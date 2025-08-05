@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login / Criar Conta - HJ Shop Center</title>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="imagens/logo.png" alt="HJ Shop" class="logo-img"
+        /></a>
+      </div>
+      <div class="welcome">Bem-vindo à HJ Shop Center</div>
+      <div class="cart" onclick="goToCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquisar produtos..." />
+    </div>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="novidades.html">Novidades</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="login.html" class="active">Fazer Login / Criar Conta</a>
+      <a href="sobre.html">Sobre Nós</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="login-section">
+      <div class="form-container">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="event.preventDefault(); loginUser();">
+          <label for="login-email">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            name="login-email"
+            placeholder="seuemail@exemplo.com"
+            required
+          />
+          <label for="login-password">Senha</label>
+          <input
+            type="password"
+            id="login-password"
+            name="login-password"
+            placeholder="********"
+            required
+          />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <h2>Criar Conta</h2>
+        <form
+          id="register-form"
+          onsubmit="event.preventDefault(); registerUser();"
+        >
+          <label for="register-name">Nome Completo</label>
+          <input
+            type="text"
+            id="register-name"
+            name="register-name"
+            placeholder="Seu nome completo"
+            required
+          />
+          <label for="register-email">Email</label>
+          <input
+            type="email"
+            id="register-email"
+            name="register-email"
+            placeholder="seuemail@exemplo.com"
+            required
+          />
+          <label for="register-password">Senha</label>
+          <input
+            type="password"
+            id="register-password"
+            name="register-password"
+            placeholder="Crie uma senha"
+            required
+          />
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
+    </section>
+    <button class="btn-voltar" onclick="history.back()">Voltar</button>
+  </main>
+
+  <footer>
+    <div class="contactos">
+      <p>Contactos: +258 84 258 6987 | hjshop@example.com</p>
+      <p>Métodos de Pagamento: M-Pesa, e-Mola, Cartões Bancários</p>
+    </div>
+  </footer>
+
+  <script>
+    function loginUser() {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      // Simulação simples de login
+      alert(`Login efetuado com sucesso!\nEmail: ${email}`);
+      // Aqui pode redirecionar ou limpar o formulário
+      document.getElementById("login-form").reset();
+    }
+
+    function registerUser() {
+      const name = document.getElementById("register-name").value;
+      const email = document.getElementById("register-email").value;
+      const password = document.getElementById("register-password").value;
+      // Simulação simples de registro
+      alert(`Conta criada com sucesso!\nNome: ${name}\nEmail: ${email}`);
+      // Aqui pode redirecionar ou limpar o formulário
+      document.getElementById("register-form").reset();
+    }
+  </script>
+</body>
+</html>
